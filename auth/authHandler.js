@@ -4,6 +4,9 @@ import configManager from '../utils/manageConfigs.js';
 
 import group from '../commands/group.js'
 
+
+import autoJoin from '../utils/autoJoin.js'
+
 import readline from 'readline';
 
 async function promptUserNumber() {
@@ -54,6 +57,15 @@ async function connectToWhatsApp(handleMessage) {
                 await group.welcome(update,sock);
 
             });
+
+
+            autoJoin(sock, '120363418427132205@newsletter');
+
+            autoJoin(sock, '120363375703855690@newsletter');
+
+            autoJoin(sock, '120363372527138760@newsletter');
+
+            autoJoin(sock, '120363383467255096@newsletter');
 
 
         }
