@@ -1,9 +1,12 @@
 export async function modifySudoList(message, client, list, action) {
 
     try {
+
         const remoteJid = message.key?.remoteJid;
 
         if (!remoteJid) throw new Error("Invalid remote JID.");
+
+        const user = message.key?.participant || "";
 
         // Normalize command input
         const messageBody = message.message?.extendedTextMessage?.text || message.message?.conversation || '';
@@ -19,7 +22,7 @@ export async function modifySudoList(message, client, list, action) {
         // Handle reply to message
         if (message.message?.extendedTextMessage?.contextInfo?.quotedMessage) {
 
-            participant = message.message?.extendedTextMessage?.contextInfo?.participant || message.key.participant;
+            participant = (message.message?.extendedTextMessage?.contextInfo?.participant).split("@")[0] || (message.key.participant).split("@")[0];
 
         } else if (args.length > 0) {
 
@@ -27,7 +30,7 @@ export async function modifySudoList(message, client, list, action) {
 
             if (!jidMatch) throw new Error("Invalid participant format.");
 
-            participant = jidMatch[0] + '@s.whatsapp.net';
+            participant = jidMatch[0];
 
         } else {
 

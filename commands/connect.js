@@ -1,5 +1,5 @@
 
-import { makeWASocket, useMultiFileAuthState, DisconnectReason } from '@whiskeysockets/baileys';
+import { makeWASocket, useMultiFileAuthState, DisconnectReason } from "bailey";
 
 import configManager from '../utils/manageConfigs.js';
 

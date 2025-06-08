@@ -33,7 +33,7 @@ async function setprefix(message, client) {
 
         if (args.length > 0) {
 
-            const prefix = args;
+            const prefix = args[0];
 
             if (!configManager.config.users[number]) configManager.config.users[number] = {};
 

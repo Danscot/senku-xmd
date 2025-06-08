@@ -1,5 +1,6 @@
 import { Sticker, StickerTypes } from "wa-sticker-formatter";
-import { downloadMediaMessage } from "@whiskeysockets/baileys";
+import { downloadMediaMessage } from "bailey"
+;
 import fs from "fs";
 import path from "path";
 

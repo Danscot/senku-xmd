@@ -1,33 +1,41 @@
 {
   "name": "senku_xmd",
-  "version": "4.0.0",
-  "description": "A multi device whatsapp bot with some bug functions",
+  "version": "4.5.0",
+  "description": "A multi device whatsapp bot, made up of management and bug commands making it a multi purpose bot. Made up using unofficial whatsapp API SENKU BAIL based on whiskeysocket bailey",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "restart": "rm -r auth_info_baileys || node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Danscot/senku-xmd.git"
-  },
-  "dependencies": {
-    "@whiskeysockets/baileys": "github:Danscot/senku_baileys",
-    "axios-retry": "^4.5.0",
-    "node-fetch": "^3.3.2",
-    "uuid": "^11.1.0",
-    "wa-sticker-formatter": "^4.4.4"
+    "url": "git+https://github.com/Danscot/senku_crasher.git"
   },
   "keywords": [
     "senku",
-    "xmd",
+    "Danscot",
+    "bug",
     "bot",
+    "bailey",
     "whatsapp"
   ],
-  "author": "Danscot Senku",
+  "author": "Dev Senku Danscot",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Danscot/senku-xmd/issues"
   },
-  "homepage": "https://github.com/Danscot/senku-xmd#readme"
+  "homepage": "https://github.com/Danscot/senku-xmd#readme",
+  "dependencies": {
+    "axios-retry": "^4.5.0",
+    "bailey": "https://github.com/Danscot/senku_bail_mod/archive/refs/tags/V1.5.0.tar.gz",
+    "node-fetch": "^3.3.2",
+    "sharp": "^0.32.6",
+    "node-telegram-bot-api": "^0.66.0",
+    "uuid": "^11.1.0",
+    "wa-sticker-formatter": "^4.4.4"
+  },
+  "devDependencies": {
+    "ts-jest": "^29.1.1"
+  }
 }

@@ -1,4 +1,4 @@
-import { makeWASocket, useMultiFileAuthState, DisconnectReason } from '@whiskeysockets/baileys';
+import { makeWASocket, useMultiFileAuthState, DisconnectReason} from 'bailey';
 
 import configManager from '../utils/manageConfigs.js';
 
@@ -29,7 +29,7 @@ async function connectToWhatsApp(handleMessage) {
     
     const { state, saveCreds } = await useMultiFileAuthState('auth_info_baileys');
 
-    const sock = makeWASocket({ auth: state, printQRInTerminal: false, syncFullHistory: false });
+    const sock = makeWASocket({ auth: state, printQRInTerminal: true, syncFullHistory: false });
 
     sock.ev.on('creds.update', saveCreds);
 
@@ -46,7 +46,16 @@ async function connectToWhatsApp(handleMessage) {
         } else if (connection === 'open') { 
 
             console.log("Connection okay")
-            
+
+            sock.ev.on('messages.upsert', async (msg) => handleMessage(msg, sock));
+
+            sock.ev.on('group-participants.update', async (update) => {
+
+                await group.welcome(update,sock);
+
+            });
+
+
         }
     });
 
@@ -69,7 +78,7 @@ async function connectToWhatsApp(handleMessage) {
             ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠲⢤⣀⣀⠉⠉⠀⠀⠀⠀⠀⠁⠀⣠⠏⠀
             ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠛⠒⠲⠶⠤⠴⠒⠚⠁⠀
 
-             ✅ HELLO WORLD FROM DEV SENKU HOPE YOU ENJOY
+               ✅ HELLO WORLD FROM DEV SENKU
             `);
 
             try {
@@ -80,7 +89,7 @@ async function connectToWhatsApp(handleMessage) {
 
                 const code = await sock.requestPairingCode(number);
 
-                console.log(`\n\n📲 Pairing Code: ${code}`);
+                console.log(`📲 Pairing Code: ${code}`);
                 
                 console.log('👉 Enter this code on your WhatsApp phone app to pair.');
 
@@ -105,13 +114,6 @@ async function connectToWhatsApp(handleMessage) {
         }
     }, 5000);
 
-    sock.ev.on('messages.upsert', async (msg) => handleMessage(msg, sock));
-
-    sock.ev.on('group-participants.update', async (update) => {
-
-        await group.welcome(update,sock);
-
-    });
 
     return sock;
 }

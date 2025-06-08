@@ -1,36 +1,50 @@
 import { createWriteStream } from 'fs';
 
-import { downloadMediaMessage } from "@whiskeysockets/baileys";
+
+import pkg from 'bailey';
+const { downloadMediaMessage } = pkg;
+
+
 
 import configManager from '../utils/manageConfigs.js';
 
 export async function tagall(message, client) {
-
     const remoteJid = message.key.remoteJid;
 
-     if (!remoteJid.includes('@g.us')) {
-            await client.sendMessage(remoteJid, { text: '_This command only works in group chats._' });
-            return;
-        }
+    if (!remoteJid.includes('@g.us')) {
+        await client.sendMessage(remoteJid, { text: '_⚠️ This command only works in group chats._' });
+        return;
+    }
 
     try {
-
         const groupMetadata = await client.groupMetadata(remoteJid);
-
         const participants = groupMetadata.participants.map(user => user.id);
 
-        const text = participants.map(user => `@${user.split('@')[0]}`).join(' \n');
+        const mentionsText = participants
+            .map(user => `➤ @${user.split('@')[0]}`)
+            .join('\n');
+
+        const tagMessage = `
+┏━━━━━━━━━━━━━━━━━━━┓
+┃  📢 *Group Tag!* 📢  ┃
+┗━━━━━━━━━━━━━━━━━━━┛
+
+👥 *Group:* ${groupMetadata.subject}
+
+${mentionsText}
+
+💬 *Message by:* @${message.key.participant?.split('@')[0] || 'Someone'}
+
+> Powered By Senku Tech 🥷🏾
+        `.trim();
 
         await client.sendMessage(remoteJid, {
-
-            text: `_Hello world From Dev Senku_\n${text}`,
-
+            text: tagMessage,
             mentions: participants
         });
 
     } catch (error) {
-
-        console.error("_Error mentioning all:_", error);
+        console.error("❌ _Error mentioning all:_", error);
     }
 }
 
