@@ -314,7 +314,7 @@ async function linkDetection(message, client, lids = []) {
     // Ensure lids is an array
     const botLids = Array.isArray(lids) ? lids : [lids];
 
-    if (remoteJid.endsWith("@g.us")) return;
+    if (!remoteJid.endsWith("@g.us")) return;
     
     // If feature is off, return
     if (!detect) return;
