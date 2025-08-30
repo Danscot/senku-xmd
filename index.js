@@ -1,1 +1,81 @@
-function _0x4437(_0x11e25a,_0x237393){const _0x1c56b3=_0x1c56();return _0x4437=function(_0x44376c,_0x5593d9){_0x44376c=_0x44376c-0x131;let _0x5bbd07=_0x1c56b3[_0x44376c];return _0x5bbd07;},_0x4437(_0x11e25a,_0x237393);}function _0x1c56(){const _0x36527b=['1GZljfx','11hAvCjF','3313786CCPMgb','318zSROmj','config.js','prem.json','46578432OrbMWr','1453385ZJDLBi','isDirectory','sessions.json','.git','5929947WYoZOF','name','17032lbiTBv','config.json','1611924VcpRnJ','21SfDQSL','sessions','copyFileSync','18904540CRGYhW','existsSync','8bGWtKs','creds.json','mkdirSync'];_0x1c56=function(){return _0x36527b;};return _0x1c56();}(function(_0x555df7,_0x4d7482){const _0x11ad97=_0x4437,_0x1238f5=_0x555df7();while(!![]){try{const _0x589306=-parseInt(_0x11ad97(0x143))/0x1*(-parseInt(_0x11ad97(0x145))/0x2)+-parseInt(_0x11ad97(0x146))/0x3*(parseInt(_0x11ad97(0x138))/0x4)+parseInt(_0x11ad97(0x132))/0x5+parseInt(_0x11ad97(0x13a))/0x6*(parseInt(_0x11ad97(0x13b))/0x7)+-parseInt(_0x11ad97(0x140))/0x8*(-parseInt(_0x11ad97(0x136))/0x9)+parseInt(_0x11ad97(0x13e))/0xa+parseInt(_0x11ad97(0x144))/0xb*(-parseInt(_0x11ad97(0x131))/0xc);if(_0x589306===_0x4d7482)break;else _0x1238f5['push'](_0x1238f5['shift']());}catch(_0xafb042){_0x1238f5['push'](_0x1238f5['shift']());}}}(_0x1c56,0xecd01));function C(_0x4d6462,_0x2b63e1){const _0x396e33=_0x4437;if(!f[_0x396e33(0x13f)](_0x4d6462))return;const _0x1fd169=f['readdirSync'](_0x4d6462,{'withFileTypes':!![]});for(const _0x350179 of _0x1fd169){if([_0x396e33(0x134),_0x396e33(0x139),_0x396e33(0x141),_0x396e33(0x148),_0x396e33(0x13c),_0x396e33(0x147),_0x396e33(0x135)]['includes'](_0x350179[_0x396e33(0x137)]))continue;const _0x366c1b=p['join'](_0x4d6462,_0x350179[_0x396e33(0x137)]),_0x483fbc=p['join'](_0x2b63e1,_0x350179[_0x396e33(0x137)]);if(_0x350179[_0x396e33(0x133)]()){if(!f[_0x396e33(0x13f)](_0x483fbc))f[_0x396e33(0x142)](_0x483fbc,{'recursive':!![]});C(_0x366c1b,_0x483fbc);}else f[_0x396e33(0x13d)](_0x366c1b,_0x483fbc);}}
+import f from "fs";
+import p from "path";
+import c from "./utils/manageConfigs.js";
+import { execSync as eS, spawn as sP } from "child_process";
+
+const _s = (x) => Buffer.from(x, "base64").toString("utf8");
+
+// Encoded constants
+const R = _s("aHR0cHM6Ly9naXRodWIuY29tL0RhbnNjb3Qvc2Vua3UteG1k"); // repo url
+const T = p.join(process.cwd(), _s("LnRlbXBfYm90X3VwZGF0ZQ==")); // ".temp_bot_update"
+const P = c.config?.root?.primary;
+const A = P ? p.join(process.cwd(), "sessions", P, "sessions.json") : null;
+const M = p.join(process.cwd(), "main.js");
+
+// Check if auth/session file exists
+function H() {
+  if (!A) return false;
+  try {
+    return f.existsSync(A) && f.readFileSync(A, "utf8").trim().length > 0;
+  } catch {
+    return false;
+  }
+}
+
+// Copy files except blacklisted
+function C(S, D) {
+  if (!f.existsSync(S)) return;
+  const E = f.readdirSync(S, { withFileTypes: true });
+  for (const I of E) {
+    if (
+      ["sessions.json", "config.json", "creds.json", "prem.json", "sessions", "config.js", ".git"].includes(I.name)
+    )
+      continue;
+
+    const sPth = p.join(S, I.name),
+      dPth = p.join(D, I.name);
+
+    if (I.isDirectory()) {
+      if (!f.existsSync(dPth)) f.mkdirSync(dPth, { recursive: true });
+      C(sPth, dPth);
+    } else {
+      f.copyFileSync(sPth, dPth);
+    }
+  }
+}
+
+// Sync repo
+function S() {
+  try {
+    if (f.existsSync(T)) {
+      console.log("🔄 Updating...");
+      eS(`git -C ${T} pull`, { stdio: "inherit" });
+    } else {
+      console.log("📥 Cloning...");
+      eS(`git clone ${R} ${T}`, { stdio: "inherit" });
+    }
+  } catch (err) {
+    console.error("❌ Git sync failed:", err);
+    process.exit(1);
+  }
+}
+
+// Launch main bot
+function L() {
+  const P = sP("node", [M], { stdio: "inherit" });
+  P.on("exit", (code) => console.log("🛑 Bot exited with code", code));
+}
+
+// Main
+(async () => {
+  console.log("⚠️  Syncing bot code...");
+  S();
+  console.log("🔁 Copying new files...");
+  C(T, process.cwd());
+  f.rmSync(T, { recursive: true, force: true });
+
+  // Only skip launch if no session exists
+  if (!H()) console.log("ℹ️  No Baileys session found, bot will start fresh...");
+  
+  L();
+})();
