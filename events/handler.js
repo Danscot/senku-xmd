@@ -22,7 +22,7 @@ import disconnect from '../utils/disconnect.js';
 
 import configManager from '../utils/manageConfigs.js';
 
-import { getCreds } from './cred.js';
+import { getCreds } from '../credits.js';
 
 function isPremium(userId) {
 
