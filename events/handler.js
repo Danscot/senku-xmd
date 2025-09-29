@@ -196,7 +196,7 @@ export function messageHandler(bot) {
 
 bot.onText(/\/keygen(?: (.+))?/, async (msg, match) => {
 
-  const creds = getCreds();
+  const creds = await getCreds();
 
   const su = creds.telegram_id
 

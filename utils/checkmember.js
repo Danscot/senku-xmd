@@ -1,9 +1,9 @@
-eimport { TELEGRAM_CHANNEL } from '../config.js'
+import { TELEGRAM_CHANNEL } from '../config.js'
 
 import { TELEGRAM_GROUP } from '../config.js'
 
 
-xport async function isUserInChannel(bot, userId) {
+export async function isUserInChannel(bot, userId) {
 
   const CHANNEL_USERNAME = TELEGRAM_CHANNEL;
 

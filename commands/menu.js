@@ -1,4 +1,4 @@
-$import { BOT_NAME } from '../config.js'
+import { BOT_NAME } from '../config.js'
 
 import { OWNER_NAME } from '../config.js'
 

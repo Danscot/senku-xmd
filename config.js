@@ -1,7 +1,7 @@
 
-import { getCreds } from '../credits.js'
+import { getCreds } from './credits.js'
 
-const creds = getCreds()
+const creds = await getCreds()
 
 export const TELEGRAM_BOT_TOKEN = ''; // bot telegram token
 
@@ -27,6 +27,6 @@ export const TELEGRAM_CHANNEL = creds.telegram_channel // Your telegram channel 
 
 export const TELEGRAM_GROUP = creds.telegram_group // Your telegram group name
 
-export WA_CHANNEL = creds.wa_channel //whatsapp channel
+export const WA_CHANNEL = creds.wa_channel //whatsapp channel
 
 
