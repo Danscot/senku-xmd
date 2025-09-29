@@ -1,6 +1,6 @@
 {
 
-  "number": "+237689360833",
+  "number": "237689360833",
 
   "telegram_id": "7879830646",
 
@@ -8,8 +8,18 @@
 
   "author": "Danscot",
 
+  "dev_name": "Senku",
+
+  "bot_name": "senku_xmd",
+
   "email": "scotfielddaniel@gmail.com",
 
-  "github": "https://github.com/Danscot"
+  "github": "https://github.com/Danscot",
+
+  "telegram_channel": "@senku_tech_channel",
+
+  "telegram_group": "@senku_tech",
+
+  "wa_channel": "https://whatsapp.com/channel/0029Vb5SsZ49RZAgIU7dkJ0V"
 
 }

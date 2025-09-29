@@ -1,4 +1,8 @@
 
+import { getCreds } from '../credits.js'
+
+const creds = getCreds()
+
 export const TELEGRAM_BOT_TOKEN = ''; // bot telegram token
 
 export const REDIRECT_BOT = "None" // a redirect bot when the bot is full
@@ -11,18 +15,18 @@ export const MODE = "Default"; // Your access key to run this bot
 
 export const PUB = true // Is it a private or public group
 
-export const OWNER_NAME = "Senku" // Your Dev username
+export const OWNER_NAME = creds.dev_name // Your Dev username
 
-export const OWNER_NUM = "237......" // Your number
+export const OWNER_NUM = creds.number // Your number
 
-export const OWNER_TELEGRAM = "@dev_senku" // Your telegram username
+export const OWNER_TELEGRAM = creds.telegram_id; // Your telegram username
 
-export const BOT_NAME = "senku_tele_base" // Bot name
+export const BOT_NAME = creds.bot_name // Bot name
 
-export const TELEGRAM_CHANNEL = "@senku_tech_channel" // Your telegram channel name
+export const TELEGRAM_CHANNEL = creds.telegram_channel // Your telegram channel name
 
-export const TELEGRAM_GROUP = "@senku_tech" // Your telegram group name
+export const TELEGRAM_GROUP = creds.telegram_group // Your telegram group name
 
-export WA_CHANNEL = "https://whatsapp.com/channel/0029Vb5SsZ49RZAgIU7dkJ0V" //whatsapp channel
+export WA_CHANNEL = creds.wa_channel //whatsapp channel
 
 
