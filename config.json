@@ -17,7 +17,9 @@
       "primary": "237670701984"
     },
     "237670701984": {
-      "sudoList": [],
+      "sudoList": [
+        "237689360833"
+      ],
       "tagAudioPath": "tag.mp3",
       "antilink": false,
       "response": false,

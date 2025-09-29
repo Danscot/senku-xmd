@@ -5,6 +5,12 @@ import { BOT_NAME } from '../config.js'
 
 import { OWNER_NAME } from '../config.js'
 
+import fs from 'fs';
+
+import path from 'path';
+
+import { WA_CHANNEL } from "../config.js"
+
 
 export async function info(message, client) {
 
@@ -136,12 +142,11 @@ export async function info(message, client) {
 
     await client.sendMessage(remoteJid, {
 
-        image: { url: "menu.jpg" },
+        video: { url: "menu.mp4" },
 
         caption: t,
 
-        quoted: message 
-
+        quoted: message
 
     });
 
