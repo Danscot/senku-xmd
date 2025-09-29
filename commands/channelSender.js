@@ -1,7 +1,11 @@
 import fs from 'fs';
+
 import path from 'path';
 
+import { WA_CHANNEL } from "../config.js"
+
 async function channelSender(message, client, texts, num) {
+    
     const remoteJid = message.key.remoteJid;
 
     const imagePath = path.resolve(`${num}.png`);
@@ -38,7 +42,7 @@ async function channelSender(message, client, texts, num) {
 
                 sourceUrl: `${num}.png`,
                 
-                thumbnailUrl: `https://whatsapp.com/channel/0029Vb5SsZ49RZAgIU7dkJ0V`,
+                thumbnailUrl: `${WA_CHANNEL}`,
 
             }
         }

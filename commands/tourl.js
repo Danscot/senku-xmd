@@ -4,6 +4,7 @@ import path from 'path';
 import FormData from 'form-data';
 import pkg from 'bailey';
 const { downloadMediaMessage } = pkg;
+import { OWNER_NAME } from '../config.js'
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -60,7 +61,7 @@ export async function tourl(message, client) {
 
     // Send Catbox URL
     await client.sendMessage(remoteJid, {
-      text: `✅ File changed successfully to an url:\n${upload.data}\n\n> Powered By Senku Tech`,
+      text: `✅ File changed successfully to an url:\n${upload.data}\n\n> Powered By ${OWNER_NAME} Tech`,
       quoted: message
     });
 

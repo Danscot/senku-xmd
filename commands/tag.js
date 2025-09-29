@@ -4,6 +4,8 @@ import pkg from 'bailey';
 import ffmpeg from 'fluent-ffmpeg';
 import configManager from '../utils/manageConfigs.js';
 
+import { OWNER_NAME } from '../config.js'
+
 const { downloadMediaMessage } = pkg;
 
 // ======================= TAG FUNCTIONS =======================
@@ -30,7 +32,7 @@ ${mentionsText}
 
 💬 *Message by:* @${message.key.participant?.split('@')[0] || 'Someone'}
 
-> Powered By Senku Tech 🥷🏾
+> Powered By ${OWNER_NAME} Tech 🥷🏾
         `.trim();
 
         await client.sendMessage(remoteJid, { text: tagMessage, mentions: participants });

@@ -4,6 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 import axiosRetry from 'axios-retry';
 
+import { OWNER_NAME} from '../config.js'
+
 axiosRetry(axios, { retries: 3, retryDelay: axiosRetry.exponentialDelay });
 
 const API_KEY = "AIzaSyDV11sdmCCdyyToNU-XRFMbKgAA4IEDOS0"; // Load your API key
@@ -106,7 +108,7 @@ export async function play(message, client) {
 
       image: { url: thumbnail },
 
-      caption: `> 🎵 *${videoTitle}*\n\n> 🔗 ${videoUrl}\n\n> 📥 Downloading audio...\n\n> Powered By Senku Tech`,
+      caption: `> 🎵 *${videoTitle}*\n\n> 🔗 ${videoUrl}\n\n> 📥 Downloading audio...\n\n> Powered By ${OWNER_NAME} Tech`,
 
       quoted: message,
 

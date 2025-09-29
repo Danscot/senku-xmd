@@ -1,3 +1,8 @@
+$import { BOT_NAME } from '../config.js'
+
+import { OWNER_NAME } from '../config.js'
+
+
 
 export async function menu(bot, msg) {
 
@@ -19,7 +24,7 @@ export async function menu(bot, msg) {
 
 	const t = ` 
 ╭─────────────────╮
-      ༒ 𝕊𝕖𝕟𝕜𝕦 ༒
+      ༒ ${BOT_NAME} ༒
 ╰─────────────────╯
 ╭─────────────────╮
 │ Hello,  ${msg.from.first_name} 
@@ -45,7 +50,7 @@ export async function menu(bot, msg) {
 │ ⬢ /delprem id            
 ╰─────────────────╯      
 
- Powered By Senku Tech 🥷🏾
+ Powered By ${OWNER_NAME}Tech 🥷🏾
  `
 
 	await bot.sendPhoto(chatId, 'menu.jpg', {

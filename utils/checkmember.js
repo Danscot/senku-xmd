@@ -1,8 +1,13 @@
-export async function isUserInChannel(bot, userId) {
+eimport { TELEGRAM_CHANNEL } from '../config.js'
 
-  const CHANNEL_USERNAME = '@senku_tech_channel';
+import { TELEGRAM_GROUP } from '../config.js'
 
-  const GROUP_USERNAME = '@senku_tech';
+
+xport async function isUserInChannel(bot, userId) {
+
+  const CHANNEL_USERNAME = TELEGRAM_CHANNEL;
+
+  const GROUP_USERNAME = TELEGRAM_GROUP;
 
   try {
 

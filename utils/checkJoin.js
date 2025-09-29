@@ -1,6 +1,10 @@
 // checkJoin.js
 import { isUserInChannel } from '../utils/checkmember.js';
 
+import { TELEGRAM_CHANNEL } from '../config.js'
+
+import { TELEGRAM_GROUP } from '../config.js'
+
 export async function handleCheckJoin(bot, callbackQuery, msg) {
 
   const chatId = callbackQuery.message.chat.id;
@@ -48,8 +52,8 @@ You're all set. Use /menu to explore available options.`,
 
 Please make sure you've joined both the channel and group:
 
-👉 [Join Channel](https://t.me/senku_tech_channel)
-👉 [Join Group](https://t.me/senku_tech)
+👉 [Join Channel](${TELEGRAM_CHANNEL})
+👉 [Join Group](${TELEGRAM_GROUP})
 
 Then press the button again.`,
 

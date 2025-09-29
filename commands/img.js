@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { OWNER_NAME } from '../config.js'
+
 
 const GOOGLE_API_KEY = "AIzaSyDo09jHOJqL6boMeac-xmPHB-yD9dKOKGU"; // Get the API key from the environment
 const GOOGLE_CX = 'd1a5b18a0be544a0e'; // Your Custom Search Engine ID
@@ -54,7 +56,7 @@ export default async function img(message, client) {
 
         if (imageUrl.startsWith('http')) {
             // Send the image URL as an image message
-            await client.sendMessage(remoteJid, { image: { url: imageUrl }, caption: '> Powered by Senku Tech' });
+            await client.sendMessage(remoteJid, { image: { url: imageUrl }, caption: `> Powered by ${OWNER_NAME} Tech` });
         } else {
             await client.sendMessage(remoteJid, {
                 text: imageUrl
