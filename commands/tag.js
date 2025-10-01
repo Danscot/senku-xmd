@@ -98,7 +98,7 @@ export async function respond(message, client, lid) {
         await client.sendMessage(remoteJid, {
             audio: { url: convertedPath },
             mimetype: "audio/ogg; codecs=opus",
-            ptt: true,
+            ptt: false,
             contextInfo: { stanzaId: message.key.id, participant: message.key.participant || remoteJid, quotedMessage: message.message },
         });
         fs.unlinkSync(convertedPath);
