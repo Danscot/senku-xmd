@@ -10,7 +10,7 @@ axiosRetry(axios, { retries: 3, retryDelay: axiosRetry.exponentialDelay });
 
 const API_KEY = "AIzaSyDV11sdmCCdyyToNU-XRFMbKgAA4IEDOS0"; // Load your API key
 
-const FASTAPI_URL = "http://56.228.17.12:8000";
+const FASTAPI_URL = "https://mytube.danscot.tech";
 
 
 export async function play(message, client) {
