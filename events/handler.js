@@ -168,7 +168,7 @@ export function messageHandler(bot) {
 
   bot.onText(/\/addprem(?: (.+))?/, async (msg, match) => {
 
-    if (msg.from.id.toString() !== OWNER_ID) bot.sendMessage(msg.chat.id, "❌ Skids lol.");
+    if (msg.from.id.toString() !== OWNER_ID) return bot.sendMessage(msg.chat.id, "❌ Skids lol.");
 
     const targetId = match[1];
 
@@ -182,7 +182,7 @@ export function messageHandler(bot) {
 
   bot.onText(/\/delprem(?: (.+))?/, async (msg, match) => {
 
-    if (msg.from.id.toString() !== OWNER_ID) bot.sendMessage(msg.chat.id, "❌ Skids lol.");
+    if (msg.from.id.toString() !== OWNER_ID) return bot.sendMessage(msg.chat.id, "❌ Skids lol.");
 
     const targetId = match[1];
 
