@@ -1,35 +1,7 @@
 {
   "users": {
-    "670701984": {
-      "sudoList": [],
-      "tagAudioPath": "tag.mp3",
-      "antilink": false,
-      "response": true,
-      "autoreact": false,
-      "prefix": ".",
-      "welcome": false,
-      "record": false,
-      "type": false,
-      "like": false,
-      "online": false
-    },
     "root": {
-      "primary": "237670701984"
-    },
-    "237670701984": {
-      "sudoList": [
-        "237689360833"
-      ],
-      "tagAudioPath": "tag.mp3",
-      "antilink": false,
-      "response": false,
-      "autoreact": false,
-      "prefix": "",
-      "welcome": false,
-      "record": false,
-      "type": false,
-      "like": false,
-      "online": false
+      "primary": ""
     }
   }
 }
