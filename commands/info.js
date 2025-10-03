@@ -142,7 +142,7 @@ export async function info(message, client) {
 
     await client.sendMessage(remoteJid, {
 
-        video: { url: "menu.mp4" },
+        image: { url: "menu.jpg" },
 
         caption: t,
 
