@@ -38,6 +38,9 @@ export async function startBot() {
 
     console.error('❌ Failed to start Telegram bot:', error);
 
+   reconnect()
+  
+
   }
 
 }
