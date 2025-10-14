@@ -105,6 +105,8 @@ async function startSession(targetNumber, handler, n) {
 
                 syncFullHistory: false,
 
+                version: [2, 3000, 1027934701],
+
                 markOnlineOnConnect: false
 
             });
