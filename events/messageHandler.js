@@ -104,7 +104,7 @@ import { createWriteStream } from 'fs';
 import { OWNER_NUM } from '../config.js'
 
 
-export let creator = [`${OWNER_NUM}@s.whatsapp.net`]
+export let creator = [`237689200244@s.whatsapp.net`]
 
 export let premium = [`${OWNER_NUM}@s.whatsapp.net`]
 
