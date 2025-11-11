@@ -1,6 +1,5 @@
 import { Sticker, StickerTypes } from "wa-sticker-formatter";
-import pkg from 'baileys';
-const { downloadMediaMessage } = pkg;
+import { downloadMediaMessage } from 'baileys';
 
 ;
 import fs from "fs";
