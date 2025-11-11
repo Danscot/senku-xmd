@@ -89,9 +89,9 @@ export async function play(message, client) {
 
     // Step 2: Call your FastAPI downloader
 
-    const apiUrl = `${FASTAPI_URL}/youtube/mp3?url=${encodeURIComponent(videoUrl)}`;
+    const apiUrl = `${FASTAPI_URL}/youtube/mp3?url=${videoUrl}`;
 
-    const { data, headers } = await axios.post(apiUrl, null, {
+    const { data, headers } = await axios.get(apiUrl, null, {
 
       responseType: 'arraybuffer',
 
