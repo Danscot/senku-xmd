@@ -1,6 +1,4 @@
-import pkg from 'baileys';
-
-const { isJidGroup, getContentType } = pkg;
+import{ isJidGroup, getContentType } from 'baileys';
 
 import configManager from '../utils/manageConfigs.js';
 
