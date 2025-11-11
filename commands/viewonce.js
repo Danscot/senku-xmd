@@ -1,6 +1,6 @@
 import { normalizeMessageContent } from '../utils/normalizeContent.js';
-import pkg from 'baileys';
-const { downloadMediaMessage } = pkg;
+
+import {downloadMediaMessage} from 'baileys';
 import fs from 'fs';
 import path from 'path';
 import util from 'util';
