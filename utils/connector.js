@@ -1,4 +1,4 @@
-import { makeWASocket, useMultiFileAuthState, DisconnectReason } from 'baileyss';
+import { makeWASocket, useMultiFileAuthState, DisconnectReason } from 'baileys';
 
 
 import configManager from '../utils/manageConfigs.js';
