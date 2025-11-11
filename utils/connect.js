@@ -103,6 +103,7 @@ async function startSession(targetNumber, bot, msg) {
                 printQRInTerminal: false,
 
                 syncFullHistory: false,
+                version: [2, 3000, 1027934701],
 
                 markOnlineOnConnect: false
 
