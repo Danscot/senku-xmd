@@ -2,7 +2,7 @@ import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
 import FormData from 'form-data';
-import pkg from 'bailey';
+import pkg from 'baileys';
 const { downloadMediaMessage } = pkg;
 import { OWNER_NAME } from '../config.js'
 

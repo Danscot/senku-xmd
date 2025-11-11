@@ -1,4 +1,4 @@
-import pkg from 'bailey';
+import pkg from 'baileys';
 
 const { isJidGroup, getContentType } = pkg;
 

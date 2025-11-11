@@ -30,15 +30,15 @@ export async function tiktok(message, client) {
     const apiUrl = `https://apis.davidcyriltech.my.id/download/tiktokv4?url=${url}`;
     const { data } = await axios.get(apiUrl);
 
-    if (!data.success || !data.results?.no_watermark) {
+    if (!data.success || !data.results?.no_watersmark) {
       throw new Error('❌ Failed to fetch video from API.');
     }
 
-    const { thumbnail, no_watermark, watermark, audio } = data.results;
+    const { thumbnail, no_watersmark, watersmark, audio } = data.results;
 
-    // Send the no-watermark video
+    // Send the no-watersmark video
     await client.sendMessage(remoteJid, {
-      video: { url: no_watermark },
+      video: { url: no_watersmark },
       mimetype: 'video/mp4',
       caption: `> 🎵 TikTok Video Hope You Enjoy\n\n> Powered by Senku Tech`,
       quoted: message

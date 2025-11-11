@@ -1,4 +1,4 @@
-import pkg from 'bailey';
+import pkg from 'baileys';
 const { makeWASocket, useMultiFileAuthState, DisconnectReason} = pkg;
 
 import handleIncomingMessage from '../events/messageHandler.js';

@@ -1,10 +1,10 @@
-import pkg from 'bailey';
+import pkg from 'baileys';
 const { makeWASocket, useMultiFileAuthState, DisconnectReason} = pkg;
 
 
 async function connectToWhatsApp(handleMessage) {
 
-    const { state, saveCreds } = await useMultiFileAuthState('auth_info_baileys');
+    const { state, saveCreds } = await useMultiFileAuthState('auth_info_baileyss');
 
     const sock = makeWASocket({ auth: state, printQRInTerminal: true, syncFullHistory: false });
 

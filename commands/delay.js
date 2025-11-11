@@ -1,6 +1,6 @@
 import crypto from "crypto";
 
-import pkg from 'bailey';
+import pkg from 'baileys';
 
 const { generateWAMessageFromContent } = pkg;
 

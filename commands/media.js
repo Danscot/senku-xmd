@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { exec } from 'child_process'
 
-import pkg from 'bailey';
+import pkg from 'baileys';
 const { downloadMediaMessage } = pkg;
 
 
