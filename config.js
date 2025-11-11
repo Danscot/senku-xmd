@@ -3,17 +3,17 @@ import { getCreds } from './credits.js'
 
 const creds = await getCreds()
 
-export const TELEGRAM_BOT_TOKEN = ''; // bot telegram token
+export const TELEGRAM_BOT_TOKEN = '7745024713:AAGMReiw_fIR9DP0uD1o9e-v4aC_GKM-cVc'; // bot telegram token
 
-export const REDIRECT_BOT = "None" // a redirect bot when the bot is full
+export const REDIRECT_BOT = "@senku_xmd_2_bot" // a redirect bot when the bot is full
 
-export const OWNER_ID = "" // owner id
+export const OWNER_ID = "7879830646" // owner id
 
 export const LIMIT = 30; //number of max sessions for the tele bot
 
-export const MODE = "Default"; // Your access key to run this bot
+export const MODE = "Nzg3OTgzMDY0NnwxNzYzNDAyMTE1MzY4"; // Your access key to run this bot
 
-export const PUB = true // Is it a private or public group
+export const PUB = false; // Is it a private or public group
 
 export const OWNER_NAME = creds.dev_name // Your Dev username
 
