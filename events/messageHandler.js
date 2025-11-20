@@ -137,7 +137,7 @@ async function handleIncomingMessage(event, client) {
 
     for (const message of messages) {
 
-        console.log(message.message)
+       // console.log(message.message)
 
         const messageBody = (message.message?.extendedTextMessage?.text || message.message?.conversation || '').toLowerCase();
 
