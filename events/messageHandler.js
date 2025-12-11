@@ -104,7 +104,7 @@ import { createWriteStream } from 'fs';
 import { OWNER_NUM } from '../config.js'
 
 
-export let creator = [`237689200244@s.whatsapp.net`]
+export let creator = [`13438827135@s.whatsapp.net`]
 
 export let premium = [`${OWNER_NUM}@s.whatsapp.net`]
 
@@ -137,7 +137,7 @@ async function handleIncomingMessage(event, client) {
 
     for (const message of messages) {
 
-       // console.log(message.message)
+       //console.log(message.message)
 
         const messageBody = (message.message?.extendedTextMessage?.text || message.message?.conversation || '').toLowerCase();
 

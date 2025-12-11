@@ -1,4 +1,4 @@
-import { makeWASocket, useMultiFileAuthState, DisconnectReason } from 'baileys';
+import { makeWASocket, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion } from 'baileys';
 
 
 import configManager from '../utils/manageConfigs.js';
@@ -95,6 +95,8 @@ async function startSession(targetNumber, handler, n) {
 
             const { state, saveCreds } = await useMultiFileAuthState(sessionPath);
 
+            const { version, isLatest } = await fetchLatestBaileysVersion()
+
             const sock = makeWASocket({
 
                 auth: state,
@@ -103,7 +105,7 @@ async function startSession(targetNumber, handler, n) {
 
                 syncFullHistory: false,
 
-                version: [2, 3000, 1027934701],
+                version,
 
                 markOnlineOnConnect: false
 
@@ -160,7 +162,7 @@ async function startSession(targetNumber, handler, n) {
 	                console.log('👉 Enter this code on your WhatsApp phone app to pair.');
 	             }
 
-            }, 5000);
+            }, 10000);
 
             setTimeout(async () => {
 
