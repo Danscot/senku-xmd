@@ -1,7 +1,3 @@
-import pkg from 'baileys';
-const { makeWASocket, useMultiFileAuthState, DisconnectReason} = pkg;
-
-
 import configManager from '../utils/manageConfigs.js';
 
 import readline from 'readline';

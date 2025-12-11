@@ -43,7 +43,7 @@ export async function info(message, client) {
 │ Hello, ${username}  
 │ Day : ${currentDay}
 │ Date : ${currentDate}/${currentMonth}/${currentYear} 
-│ Version : 5.2.0
+│ Version : 5.3.0
 │ Plugins : 64
 │ Type : X-MD        
 ╰─────────────────╯
