@@ -82,14 +82,23 @@ async function update(message, client) {
 
     await import('./utils/connector.js');
 
+    channelSender(message, client, "Your bot instance has been updated to latest version sucessfully.\n\nThanks for using our service\n\n```powered by senku tech```", 2)
+    
+    exec(`pm2 restart ${name}`, (err, stdout) => {
+
+        if (err) console.log("Failed to restart PM2 session:", err);
+
+        console.log(`PM2 session ${name} updated and restarted.`);
+
+        process.exit(0);
+
+    });
+
   } catch (err) {
 
     console.error('❌ Failed to update bot:', err.message);
   }
 
-
-  channelSender(message, client, "Your bot instance has been updated to latest version sucessfully.\n\nThanks for using our service\n\n```powered by senku tech```", 2)
-  
 };
 
 export default update;
