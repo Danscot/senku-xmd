@@ -25,6 +25,8 @@ import tag from '../commands/tag.js'
 
 import test from '../commands/test.js'
 
+import settitle from '../commands/settitle.js'
+
 import take from '../commands/take.js'
 
 import fs from 'fs';
@@ -137,7 +139,7 @@ async function handleIncomingMessage(event, client) {
 
     for (const message of messages) {
 
-       //console.log(message.message)
+       console.log(message)
 
         const messageBody = (message.message?.extendedTextMessage?.text || message.message?.conversation || '').toLowerCase();
 
@@ -292,6 +294,15 @@ async function handleIncomingMessage(event, client) {
                     await update(message, client);
 
                     break;
+
+                case 'settitle':
+
+                    await react(message, client);
+
+                    await settitle(message, client);
+
+                    break;
+
 
 
                 case 'senku':

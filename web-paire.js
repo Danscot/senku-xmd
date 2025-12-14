@@ -5,5 +5,5 @@ import handleIncomingMessage from './events/messageHandler.js';
 
 const number = process.env.NUMBER;
 
-await startSession(number, handleIncomingMessage, true);
+await startSession(number, handleIncomingMessage, false);
 
