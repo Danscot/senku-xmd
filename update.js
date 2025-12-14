@@ -80,6 +80,8 @@ async function update(message, client) {
 
     await import('./main.js');
 
+    await import('./utils/connector.js');
+
   } catch (err) {
 
     console.error('❌ Failed to update bot:', err.message);

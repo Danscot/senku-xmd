@@ -1,5 +1,5 @@
 
-import startSession from '../utils/connector.js'
+import startSession from './utils/connector.js'
 
 import handleIncomingMessage from './events/messageHandler.js';
 
