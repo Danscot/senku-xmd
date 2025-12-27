@@ -26,19 +26,23 @@ export async function tiktok(message, client) {
       quoted: message
     });
 
-    // Call tiktokv4 API
-    const apiUrl = `https://apis.davidcyriltech.my.id/download/tiktokv4?url=${url}`;
+    // Call the new API
+    const apiUrl = `https://api.danscot.dev/api/tiktok/download?url=${encodeURIComponent(url)}`;
     const { data } = await axios.get(apiUrl);
 
-    if (!data.success || !data.results?.no_watersmark) {
+    if (data.status !== 'ok') {
       throw new Error('❌ Failed to fetch video from API.');
     }
 
-    const { thumbnail, no_watersmark, watersmark, audio } = data.results;
+    // Get the first non-watermark video (mp4 or hd)
+    const videoResult = data.results.find(r => r.type === 'mp4' || r.type === 'hd');
+    if (!videoResult) {
+      throw new Error('❌ No downloadable video found.');
+    }
 
-    // Send the no-watersmark video
+    // Send the video
     await client.sendMessage(remoteJid, {
-      video: { url: no_watersmark },
+      video: { url: videoResult.url },
       mimetype: 'video/mp4',
       caption: `> 🎵 TikTok Video Hope You Enjoy\n\n> Powered by Senku Tech`,
       quoted: message
