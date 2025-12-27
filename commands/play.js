@@ -1,13 +1,12 @@
 import axios from 'axios';
-import { v4 as uuidv4 } from 'uuid';
 import { OWNER_NAME } from '../config.js';
 
 const API_KEY = "AIzaSyDV11sdmCCdyyToNU-XRFMbKgAA4IEDOS0"; // YouTube Data API key
-const FASTAPI_URL = "https://api.danscot.dev"; // Your new API
+const FASTAPI_URL = "https://api.danscot.dev/api"; // Your new API
 
 export async function play(message, client) {
   const remoteJid = message.key.remoteJid;
-  const messageBody = (message.message?.extendedTextMessage?.text || message.message?.conversation || '').toLowerCase();
+  const messageBody = (message.message?.extendedTextMessage?.text || message.message?.conversation || '')
 
   try {
     const title = getArg(messageBody);
