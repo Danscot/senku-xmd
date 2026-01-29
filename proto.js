@@ -3,7 +3,7 @@ import { proto } from "baileys";
 
 function listProtoMessageTypes() {
     console.log("=== All ProtocolMessage Types ===");
-    const types = proto.Message.ProtocolMessage.prototype;
+    const types = proto.Message.ProtocolMessage.proto;
     for (const [key, value] of Object.entries(types)) {
         console.log(`${key}: ${value}`);
     }

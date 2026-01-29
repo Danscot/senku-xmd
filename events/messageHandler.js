@@ -39,6 +39,8 @@ import getpp from '../commands/getpp.js'
 
 import senku from '../commands/senku.js'
 
+import gcstatus from '../commands/gcstatus.js'
+
 import tourl from '../commands/tourl.js';
 
 import sticker from '../commands/sticker.js'
@@ -294,6 +296,16 @@ async function handleIncomingMessage(event, client) {
                     await update(message, client);
 
                     break;
+
+
+                case 'gcstatus':
+
+                    await react(message, client);
+
+                    await gcstatus(message, client);
+
+                    break;
+
 
                 case 'settitle':
 

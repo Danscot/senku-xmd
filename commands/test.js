@@ -1,21 +1,35 @@
-import { proto } from "baileys"
+import fs from "fs"
+import { prepareWAMessageMedia } from "baileys"
 
 export async function test(message, client) {
-    const remoteJid = message.key.remoteJid
+    const from = message?.key?.remoteJid
+    if (!from) return false
+
+    const media = await prepareWAMessageMedia(
+        {
+            image: fs.readFileSync("./menu.jpg")
+        },
+        {
+            upload: client.waUploadToServer
+        }
+    )
 
     await client.relayMessage(
-        remoteJid,
+        from,
         {
-            protocolMessage: {
-                type: proto.Message.ProtocolMessage.Type.GROUP_MEMBER_LABEL_CHANGE,
-                memberLabel: {
-                    label: "test",
-                    labelTimestamp: Math.floor(Date.now() / 1000),
-                },
-            },
+            groupStatusMessageV2: {
+                message: {
+                    imageMessage: {
+                        ...media.imageMessage,
+                        caption: "" // keep empty = safest
+                    }
+                }
+            }
         },
         {}
     )
+
+    return true
 }
 
 export default test

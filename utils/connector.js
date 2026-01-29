@@ -1,6 +1,5 @@
 import { makeWASocket, useMultiFileAuthState, DisconnectReason, fetchLatestBaileysVersion } from 'baileys';
 
-
 import configManager from '../utils/manageConfigs.js';
 
 import fs from "fs";
